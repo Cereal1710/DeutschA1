@@ -14,6 +14,12 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Thành viên gia đình, bạn bè, nghề nghiệp và danh xưng',
   },
   {
+    key: 'animals',
+    label: 'Động vật & Vật nuôi',
+    iconName: 'Heart',
+    description: 'Thú cưng gia đình, động vật trang trại và thú rừng',
+  },
+  {
     key: 'school',
     label: 'Trường học & đồ vật',
     iconName: 'GraduationCap',

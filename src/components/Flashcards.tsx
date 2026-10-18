@@ -35,7 +35,11 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ favorites, speechRate })
 
   // Current item
   const currentCard = cardList[currentIndex] || cardList[0];
-  const secondaryEx = currentCard ? getSecondaryExample(currentCard.id) : undefined;
+  const secondaryEx = currentCard?.example2
+    ? { de: currentCard.example2, vi: currentCard.example2Vi || '' }
+    : currentCard
+    ? getSecondaryExample(currentCard.id)
+    : undefined;
 
   const handleNext = () => {
     setIsFlipped(false);

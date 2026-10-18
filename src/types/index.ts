@@ -5,6 +5,7 @@ export type PartOfSpeech = 'noun' | 'verb' | 'adjective' | 'adverb' | 'question'
 export type CategoryKey =
   | 'all'
   | 'family'
+  | 'animals'
   | 'school'
   | 'housing'
   | 'food'
@@ -49,6 +50,8 @@ export interface VocabularyItem {
   pluralRule?: string; // e.g. "Thêm -er + biến âm"
   example: string;
   exampleVi: string;
+  example2?: string;
+  example2Vi?: string;
   level: 'A1.1' | 'A1.2';
   conjugation?: VerbConjugation;
   caseUsage?: string; // e.g. "Đi với Akkusativ", "Đi với Dativ"

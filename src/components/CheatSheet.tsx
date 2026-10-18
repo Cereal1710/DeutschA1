@@ -141,6 +141,50 @@ export const CheatSheet: React.FC = () => {
                   <em>Ich habe Deutsch gelernt. / Er ist nach Berlin gefahren (chuyển động → sein).</em>
                 </td>
               </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Câu mệnh lệnh (Imperativ)</td>
+                <td className="py-3 px-4">
+                  <strong>du</strong>: bỏ "du" và "-st" (<em>Komm!, Lies!</em>).
+                  <strong>ihr</strong>: giữ đuôi "-t" (<em>Kommt!</em>).
+                  <strong>Sie</strong>: đảo Sie ra sau (<em>Kommen Sie bitte!</em>).
+                  Bất quy tắc của sein: <em>Sei ruhig! / Seid ruhig! / Seien Sie ruhig!</em>
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Động từ không tách</td>
+                <td className="py-3 px-4">
+                  Tiền tố: <strong>be-, emp-, ent-, er-, ge-, miss-, ver-, zer-</strong> KHÔNG BAO GIỜ TÁCH và ở thì Perfekt <strong>KHÔNG CÓ "ge-"</strong>:
+                  <em>bezahlen → hat bezahlt / verstehen → hat verstanden / bekommen → hat bekommen.</em>
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Xem giờ (Uhrzeit)</td>
+                <td className="py-3 px-4">
+                  <strong>halb</strong> là nửa của giờ tiếp theo: <em>halb drei = 14:30 (2 giờ rưỡi)</em>.
+                  <em>Viertel nach zwei = 14:15 / Viertel vor drei = 14:45.</em>
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Giới từ thời gian</td>
+                <td className="py-3 px-4">
+                  <strong>um</strong> + giờ (um 8 Uhr), <strong>am</strong> + thứ/buổi/ngày (am Montag, am Morgen), <strong>im</strong> + tháng/mùa (im Juli, im Sommer), <strong>seit</strong> + Dativ (từ quá khứ đến nay).
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">So sánh tính từ</td>
+                <td className="py-3 px-4">
+                  Bằng: <em>so groß wie</em>. Hơn: <em>schneller als</em>. Nhất: <em>am schnellsten</em>.
+                  Bất quy tắc: <em>gut → besser → am besten / viel → mehr → am meisten / gern → lieber → am liebsten</em>.
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Mẹo nhận biết giống</td>
+                <td className="py-3 px-4">
+                  Đuôi <strong>-ung, -heit, -keit, -schaft, -tion, -tät, -ei</strong> luôn là <strong>die</strong> (số nhiều -en).
+                  Đuôi <strong>-chen, -lein, -y</strong> luôn là <strong>das</strong>.
+                  Đuôi <strong>-er (chỉ nghề nghiệp)</strong> là <strong>der</strong> (số nhiều không đổi).
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

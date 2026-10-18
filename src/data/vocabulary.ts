@@ -1,6 +1,8 @@
 import { VocabularyItem } from '../types';
+import { MORE_VOCABULARY } from './moreVocabulary';
+import { ANIMALS_VOCABULARY } from './animalsVocabulary';
 
-export const VOCABULARY_LIST: VocabularyItem[] = [
+const BASE_VOCABULARY: VocabularyItem[] = [
   // ==========================================
   // 2.1 NGƯỜI VÀ GIA ĐÌNH (18 từ)
   // ==========================================
@@ -3610,4 +3612,10 @@ export const VOCABULARY_LIST: VocabularyItem[] = [
     level: 'A1.2',
     notes: 'Chia theo giống: welcher (đực), welche (cái), welches (trung), welche (số nhiều).',
   },
+];
+
+export const VOCABULARY_LIST: VocabularyItem[] = [
+  ...BASE_VOCABULARY,
+  ...MORE_VOCABULARY,
+  ...ANIMALS_VOCABULARY,
 ];

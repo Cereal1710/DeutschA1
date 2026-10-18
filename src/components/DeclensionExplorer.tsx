@@ -6,12 +6,13 @@ import {
   PERSONAL_PRONOUNS,
   POSSESSIVE_PRONOUNS,
   PREPOSITIONS_DATA,
+  MODAL_VERBS_CONJUGATION,
 } from '../data/grammar';
 import { speakGerman } from '../utils/speech';
 import { Volume2, ArrowRight, HelpCircle, Compass, CheckCircle2 } from 'lucide-react';
 
 export const DeclensionExplorer: React.FC = () => {
-  const [activeSubTab, setActiveSubTab] = useState<'articles' | 'pronouns' | 'prepositions' | 'verbs_cases'>('articles');
+  const [activeSubTab, setActiveSubTab] = useState<'articles' | 'pronouns' | 'prepositions' | 'verbs_cases' | 'modal_verbs'>('articles');
   const [articleType, setArticleType] = useState<'definite' | 'indefinite' | 'negative' | 'possessive'>('definite');
 
   // Wechselpräpositionen interactive toggle
@@ -104,6 +105,16 @@ export const DeclensionExplorer: React.FC = () => {
             }`}
           >
             Động từ đi với Akk &amp; Dat
+          </button>
+          <button
+            onClick={() => setActiveSubTab('modal_verbs')}
+            className={`px-3 py-2 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap shrink-0 ${
+              activeSubTab === 'modal_verbs'
+                ? 'bg-slate-900 text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            Modalverben (Chia 6 ngôi)
           </button>
         </div>
       </div>
@@ -684,6 +695,78 @@ export const DeclensionExplorer: React.FC = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Tab 5: Modalverben Full Conjugation */}
+      {activeSubTab === 'modal_verbs' && (
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-6">
+          <div>
+            <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">
+              5.6 Bảng chia đầy đủ 6 ngôi
+            </span>
+            <h3 className="text-lg font-bold text-slate-900 mt-2">
+              Toàn bộ động từ khuyết thiếu (Modalverben) trong tiếng Đức A1
+            </h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Quy tắc vàng: Ngôi <strong>ich</strong> và ngôi <strong>er / sie / es</strong> luôn có dạng chia GIỐNG HỆT NHAU và KHÔNG CÓ ĐUÔI!
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left">
+              <thead className="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th className="py-3 px-3">Động từ &amp; Ý nghĩa</th>
+                  <th className="py-3 px-3 text-blue-700">ich</th>
+                  <th className="py-3 px-3 text-blue-700">du</th>
+                  <th className="py-3 px-3 text-blue-700">er / sie / es</th>
+                  <th className="py-3 px-3">wir</th>
+                  <th className="py-3 px-3">ihr</th>
+                  <th className="py-3 px-3">sie / Sie</th>
+                  <th className="py-3 px-3">Ví dụ thực tế kèm âm thanh</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {MODAL_VERBS_CONJUGATION.map((m) => (
+                  <tr key={m.verb} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-3 px-3">
+                      <strong className="text-slate-900 font-bold text-sm block">{m.verb}</strong>
+                      <span className="text-[11px] text-slate-500">{m.meaning}</span>
+                    </td>
+                    <td className="py-3 px-3 font-bold text-blue-800 text-sm bg-blue-50/30">{m.ich}</td>
+                    <td className="py-3 px-3 font-bold text-blue-800 text-sm bg-blue-50/30">{m.du}</td>
+                    <td className="py-3 px-3 font-bold text-blue-800 text-sm bg-blue-50/30">{m.erSieEs}</td>
+                    <td className="py-3 px-3 font-medium text-slate-800">{m.wir}</td>
+                    <td className="py-3 px-3 font-medium text-slate-800">{m.ihr}</td>
+                    <td className="py-3 px-3 font-medium text-slate-800">{m.sieSie}</td>
+                    <td className="py-3 px-3">
+                      <div className="flex items-center justify-between gap-1.5 max-w-xs">
+                        <div>
+                          <span className="font-semibold text-slate-900 block leading-tight">{m.example}</span>
+                          <span className="text-[11px] text-slate-500 italic block mt-0.5">{m.exampleVi}</span>
+                        </div>
+                        <button
+                          onClick={() => speakGerman(m.example)}
+                          className="p-1 rounded-full text-slate-400 hover:text-blue-600 hover:bg-white shrink-0"
+                          title="Nghe câu"
+                        >
+                          <Volume2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Grammar Note */}
+          <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900">
+            <strong>Cấu trúc khung câu (Satzklammer):</strong> Trong câu chính, Modalverb đã chia đứng ở vị trí thứ 2,
+            động từ chính luôn ở dạng nguyên thể (Infinitiv) và bị đẩy về <strong>vị trí cuối cùng trong câu</strong>!
+            Ví dụ: <em>Ich <strong>kann</strong> heute Abend leider nicht <strong>kommen</strong>.</em>
           </div>
         </div>
       )}

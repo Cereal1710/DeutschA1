@@ -22,7 +22,9 @@ export const WordCard: React.FC<WordCardProps> = ({
   const [isPlayingWord, setIsPlayingWord] = useState(false);
   const [playingSentenceIndex, setPlayingSentenceIndex] = useState<number | null>(null);
 
-  const secondaryEx = getSecondaryExample(item.id);
+  const secondaryEx = item.example2
+    ? { de: item.example2, vi: item.example2Vi || '' }
+    : getSecondaryExample(item.id);
 
   const handlePlayWord = (e: React.MouseEvent) => {
     e.stopPropagation();

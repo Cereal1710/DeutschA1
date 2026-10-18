@@ -25,7 +25,9 @@ export const WordModal: React.FC<WordModalProps> = ({
 
   if (!item) return null;
 
-  const secondaryEx = getSecondaryExample(item.id);
+  const secondaryEx = item.example2
+    ? { de: item.example2, vi: item.example2Vi || '' }
+    : getSecondaryExample(item.id);
 
   const handlePlayWord = (rateMultiplier: number = 1.0) => {
     setIsPlaying(true);
