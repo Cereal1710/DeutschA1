@@ -163,16 +163,6 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
               </button>
             ))}
           </div>
-
-          {/* Admin Add Word Action Button */}
-          <button
-            onClick={() => setIsAddModalOpen(true)}
-            className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs shrink-0"
-            title="Thêm từ vựng mới (Yêu cầu mật khẩu Admin)"
-          >
-            <Plus className="w-4 h-4 text-amber-400" />
-            <span>Thêm từ vựng (Admin)</span>
-          </button>
         </div>
 
         {/* Filter Toolbar */}

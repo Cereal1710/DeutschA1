@@ -96,7 +96,6 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         favoritesCount={favorites.length}
-        onOpenAddWordModal={() => setIsAddWordModalOpen(true)}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
       />
 
