@@ -7,11 +7,13 @@ export type CategoryKey =
   | 'family'
   | 'animals'
   | 'school'
+  | 'work'
   | 'housing'
   | 'food'
   | 'time'
   | 'clothing_body'
   | 'travel'
+  | 'nature'
   | 'verbs'
   | 'adjectives'
   | 'questions';
@@ -44,6 +46,7 @@ export interface VocabularyItem {
   article?: 'der' | 'die' | 'das';
   gender: Gender;
   vietnamese: string;
+  english?: string; // English translation from reference sheet
   partOfSpeech: PartOfSpeech;
   category: CategoryKey;
   plural?: string;

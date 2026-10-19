@@ -109,6 +109,12 @@ export const WordModal: React.FC<WordModalProps> = ({
             <p className="text-lg font-medium text-slate-700 mt-1">
               {item.vietnamese}
             </p>
+            {item.english && (
+              <p className="text-sm font-medium text-slate-500 mt-0.5 flex items-center gap-1.5">
+                <span className="text-[10px] uppercase font-bold text-slate-500 px-1.5 py-0.5 bg-slate-100 rounded border border-slate-200">English</span>
+                <span>{item.english}</span>
+              </p>
+            )}
           </div>
 
           <div className="flex items-center gap-2">

@@ -1,6 +1,7 @@
 import { VocabularyItem } from '../types';
 import { MORE_VOCABULARY } from './moreVocabulary';
 import { ANIMALS_VOCABULARY } from './animalsVocabulary';
+import { NATURE_AND_COLORS_VOCABULARY } from './natureAndColorsVocabulary';
 
 const BASE_VOCABULARY: VocabularyItem[] = [
   // ==========================================
@@ -3618,4 +3619,5 @@ export const VOCABULARY_LIST: VocabularyItem[] = [
   ...BASE_VOCABULARY,
   ...MORE_VOCABULARY,
   ...ANIMALS_VOCABULARY,
+  ...NATURE_AND_COLORS_VOCABULARY,
 ];

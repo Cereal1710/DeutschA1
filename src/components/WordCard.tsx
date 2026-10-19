@@ -162,10 +162,18 @@ export const WordCard: React.FC<WordCardProps> = ({
           </div>
         </div>
 
-        {/* Vietnamese Meaning */}
-        <p className="text-sm font-semibold text-slate-800 mb-2">
-          {item.vietnamese}
-        </p>
+        {/* Vietnamese & English Meanings */}
+        <div className="mb-2">
+          <p className="text-sm font-semibold text-slate-800">
+            {item.vietnamese}
+          </p>
+          {item.english && (
+            <p className="text-xs font-medium text-slate-500 mt-0.5 flex items-center gap-1.5">
+              <span className="text-[10px] uppercase font-bold text-slate-500 px-1 py-0.2 bg-slate-100 rounded border border-slate-200">EN</span>
+              <span>{item.english}</span>
+            </p>
+          )}
+        </div>
 
         {/* Plural info if noun */}
         {item.plural && (

@@ -26,6 +26,12 @@ export const CATEGORIES: CategoryInfo[] = [
     description: 'Dụng cụ học tập, đồ dùng văn phòng và lớp học',
   },
   {
+    key: 'work',
+    label: 'Công việc & Giao tiếp',
+    iconName: 'Briefcase',
+    description: 'Nghề nghiệp, công sở, tiền bạc, thư từ và cảnh sát',
+  },
+  {
     key: 'housing',
     label: 'Nhà cửa & địa điểm',
     iconName: 'Home',
@@ -54,6 +60,12 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Phương tiện & du lịch',
     iconName: 'Plane',
     description: 'Phương tiện giao thông, nhà ga, vé tàu xe và chuyến đi',
+  },
+  {
+    key: 'nature',
+    label: 'Thiên nhiên & Thời tiết',
+    iconName: 'Sun',
+    description: 'Thời tiết, mặt trời, mưa tuyết, bầu trời và màu sắc',
   },
   {
     key: 'verbs',

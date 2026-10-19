@@ -60,15 +60,16 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
         return false;
       }
 
-      // Search term filter (searches German, word, plural, Vietnamese meaning, notes)
+      // Search term filter (searches German, word, plural, Vietnamese meaning, English meaning, notes)
       if (searchTerm.trim()) {
         const query = searchTerm.toLowerCase().trim();
         const matchesGerman = item.german.toLowerCase().includes(query);
         const matchesWord = item.word.toLowerCase().includes(query);
         const matchesVi = item.vietnamese.toLowerCase().includes(query);
+        const matchesEn = item.english?.toLowerCase().includes(query);
         const matchesPlural = item.plural?.toLowerCase().includes(query);
         const matchesNotes = item.notes?.toLowerCase().includes(query);
-        return matchesGerman || matchesWord || matchesVi || matchesPlural || matchesNotes;
+        return matchesGerman || matchesWord || matchesVi || matchesEn || matchesPlural || matchesNotes;
       }
 
       return true;
@@ -87,7 +88,7 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Tra cứu từ tiếng Đức hoặc nghĩa tiếng Việt (vd: Mann, Buch, ăn, đi, Schule...)"
+              placeholder="Tra cứu từ tiếng Đức, tiếng Anh hoặc tiếng Việt (vd: Hund, dog, con chó, Strand, beach...)"
               className="w-full pl-10 pr-10 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-sm transition-all"
             />
             {searchTerm && (
@@ -329,7 +330,13 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
                       )}
                     </td>
                     <td className="py-3 px-4 text-slate-700 font-medium">
-                      {item.vietnamese}
+                      <div>{item.vietnamese}</div>
+                      {item.english && (
+                        <div className="text-[11px] text-slate-500 font-normal mt-0.5">
+                          <span className="text-[9px] font-bold uppercase px-1 py-0.2 bg-slate-100 rounded text-slate-500 mr-1">EN</span>
+                          {item.english}
+                        </div>
+                      )}
                     </td>
                     <td className="py-3 px-4 text-slate-600">
                       {item.plural || '—'}

@@ -11,36 +11,36 @@ export interface ExampleSentence {
 export const SECONDARY_EXAMPLES: Record<string, ExampleSentence> = {
   // People & Family
   mann: {
-    de: 'Ich sehe den Mann an der Haltestelle.',
-    vi: 'Tôi nhìn thấy người đàn ông ở trạm dừng xe buýt (Akkusativ: den Mann).',
+    de: 'Der Mann liest ein Buch.',
+    vi: 'Người đàn ông đang đọc một cuốn sách (The man is reading a book).',
   },
   frau: {
-    de: 'Die Frau hilft ihrem Kind bei den Hausaufgaben.',
-    vi: 'Người phụ nữ giúp con mình làm bài tập về nhà.',
+    de: 'Die Frau geht zur Arbeit.',
+    vi: 'Người phụ nữ đi làm (The woman goes to work).',
   },
   kind: {
-    de: 'Wir haben zwei Kinder, einen Jungen und ein Mädchen.',
-    vi: 'Chúng tôi có hai đứa con, một bé trai và một bé gái.',
+    de: 'Das Kind spielt im Garten.',
+    vi: 'Đứa trẻ chơi trong vườn (The child plays in the garden).',
   },
   familie: {
-    de: 'Am Sonntag isst die ganze Familie zusammen zu Mittag.',
-    vi: 'Vào Chủ nhật cả gia đình cùng nhau ăn trưa.',
+    de: 'Meine Familie ist groß.',
+    vi: 'Gia đình tôi rất đông người (My family is big).',
   },
   vater: {
-    de: 'Ich helfe meinem Vater im Garten.',
-    vi: 'Tôi giúp bố tôi làm việc trong vườn (Dativ: meinem Vater).',
+    de: 'Mein Vater arbeitet viel.',
+    vi: 'Bố tôi làm việc rất nhiều (My father works a lot).',
   },
   mutter: {
-    de: 'Meine Mutter kocht die beste Gemüsesuppe der Welt.',
-    vi: 'Mẹ tôi nấu món súp rau củ ngon nhất thế giới.',
+    de: 'Meine Mutter kocht gut.',
+    vi: 'Mẹ tôi nấu ăn rất ngon (My mother cooks well).',
   },
   bruder: {
-    de: 'Mein älterer Bruder lernt auch Deutsch in Berlin.',
-    vi: 'Anh trai lớn của tôi cũng học tiếng Đức ở Berlin.',
+    de: 'Mein Bruder ist älter.',
+    vi: 'Anh trai tôi lớn tuổi hơn (My brother is older).',
   },
   schwester: {
-    de: 'Ich schenke meiner Schwester ein schönes Buch zum Geburtstag.',
-    vi: 'Tôi tặng em gái một cuốn sách hay nhân dịp sinh nhật.',
+    de: 'Meine Schwester studiert.',
+    vi: 'Em gái tôi đang học đại học (My sister studies).',
   },
   sohn: {
     de: 'Er holt seinen Sohn jeden Tag um 16 Uhr vom Kindergarten ab.',
@@ -85,12 +85,12 @@ export const SECONDARY_EXAMPLES: Record<string, ExampleSentence> = {
 
   // School & Objects
   schule: {
-    de: 'Meine Schule liegt ganz in der Nähe von meinem Haus.',
-    vi: 'Trường học của tôi nằm ở ngay gần nhà tôi.',
+    de: 'Ich gehe zur Schule.',
+    vi: 'Tôi đi đến trường học (I go to school).',
   },
   buch: {
-    de: 'Kannst du mir bitte das rote Buch auf dem Regal geben?',
-    vi: 'Bạn có thể đưa cho tôi cuốn sách màu đỏ trên kệ sách được không?',
+    de: 'Ich lese ein Buch.',
+    vi: 'Tôi đang đọc một cuốn sách (I am reading a book).',
   },
   heft: {
     de: 'In dieses Heft schreibe ich alle Grammatikregeln auf.',
@@ -109,32 +109,32 @@ export const SECONDARY_EXAMPLES: Record<string, ExampleSentence> = {
     vi: 'Cô ấy xếp sách vở vào trong chiếc cặp túi.',
   },
   tisch: {
-    de: 'Wir sitzen alle gemeinsam um den großen Tisch herum.',
-    vi: 'Tất cả chúng tôi cùng ngồi quanh chiếc bàn lớn.',
+    de: 'Der Tisch ist groß.',
+    vi: 'Chiếc bàn này rất to (The table is big).',
   },
   stuhl: {
-    de: 'Der Stuhl am Fenster ist besonders bequem zum Lesen.',
-    vi: 'Chiếc ghế ở cạnh cửa sổ đặc biệt thoải mái để đọc sách.',
+    de: 'Der Stuhl steht am Tisch.',
+    vi: 'Chiếc ghế được kê cạnh chiếc bàn (The chair stands at the table).',
   },
   fenster: {
-    de: 'Vom Fenster aus kann man den schönen Park sehen.',
-    vi: 'Từ cửa sổ người ta có thể nhìn thấy công viên tuyệt đẹp.',
+    de: 'Das Fenster ist geschlossen.',
+    vi: 'Cửa sổ đang được đóng kín (The window is closed).',
   },
   tuer: {
-    de: 'Klopfen Sie bitte an die Tür, bevor Sie eintreten!',
-    vi: 'Xin ngài vui lòng gõ cửa trước khi bước vào phòng!',
+    de: 'Die Tür ist offen.',
+    vi: 'Cánh cửa đang mở (The door is open).',
   },
   handy: {
     de: 'Mein Handy hat keinen Akku mehr, ich muss es aufladen.',
     vi: 'Điện thoại của tôi hết pin rồi, tôi phải sạc lại thôi.',
   },
   computer: {
-    de: 'Mit dem Computer kann man sehr effektiv online Deutsch lernen.',
-    vi: 'Với máy tính người ta có thể học tiếng Đức trực tuyến rất hiệu quả.',
+    de: 'Ich arbeite am Computer.',
+    vi: 'Tôi làm việc trên máy tính (I work on the computer).',
   },
   uhr: {
-    de: 'Meine Uhr zeigt genau fünf vor zwölf an.',
-    vi: 'Đồng hồ của tôi chỉ đúng 12 giờ kém 5 phút.',
+    de: 'Die Uhr zeigt drei Uhr.',
+    vi: 'Đồng hồ chỉ đúng ba giờ (The clock shows three o\'clock).',
   },
   woerterbuch: {
     de: 'Ein gutes Wörterbuch ist für jeden Deutschlerner unverzichtbar.',
