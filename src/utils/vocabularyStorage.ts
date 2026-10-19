@@ -1,45 +1,28 @@
-import { VocabularyItem } from '../types';
+import { VocabularyItem } from '../types/index';
 import { VOCABULARY_LIST } from '../data/vocabulary';
 
 const CUSTOM_VOCAB_STORAGE_KEY = 'deutsch_custom_vocabulary_v1';
-const ADMIN_AUTH_KEY = 'deutsch_admin_auth_session';
 export const ADMIN_PASSWORD = 'admin1234';
 
 /**
- * Check if admin is currently authenticated in session
+ * Check if admin is currently authenticated (always returns false to enforce password entry every time)
  */
 export function isAdminAuthenticated(): boolean {
-  try {
-    return sessionStorage.getItem(ADMIN_AUTH_KEY) === 'true';
-  } catch {
-    return false;
-  }
+  return false;
 }
 
 /**
- * Verify admin password (must match 'admin1234')
+ * Verify admin password
  */
 export function verifyAdminPassword(password: string): boolean {
-  if (password === ADMIN_PASSWORD) {
-    try {
-      sessionStorage.setItem(ADMIN_AUTH_KEY, 'true');
-    } catch {
-      // ignore
-    }
-    return true;
-  }
-  return false;
+  return password === ADMIN_PASSWORD;
 }
 
 /**
  * Clear admin authentication
  */
 export function logoutAdmin(): void {
-  try {
-    sessionStorage.removeItem(ADMIN_AUTH_KEY);
-  } catch {
-    // ignore
-  }
+  // no-op
 }
 
 /**

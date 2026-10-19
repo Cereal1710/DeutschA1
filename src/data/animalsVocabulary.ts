@@ -432,7 +432,7 @@ export const ANIMALS_VOCABULARY: VocabularyItem[] = [
     level: 'A1.1',
   },
   {
-    id: 'fisch',
+    id: 'tier_fisch',
     german: 'r Fisch / r Goldfisch',
     word: 'Fisch',
     article: 'der',

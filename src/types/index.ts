@@ -68,6 +68,7 @@ export interface VocabularyItem {
   conjugation?: VerbConjugation;
   caseUsage?: string; // e.g. "Đi với Akkusativ", "Đi với Dativ"
   notes?: string;
+  english?: string;
 }
 
 export type ActiveTab = 'lookup' | 'declension' | 'grammar' | 'flashcards' | 'quiz' | 'cheatsheet';

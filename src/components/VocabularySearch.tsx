@@ -46,7 +46,7 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('all');
-  const [selectedGender, setSelectedGender] = useState<'all' | 'der' | 'die' | 'das' | 'verb' | 'other'>('all');
+  const [selectedGender, setSelectedGender] = useState<'all' | 'der' | 'die' | 'das' | 'verb' | 'adjective' | 'other'>('all');
   const [selectedLevel, setSelectedLevel] = useState<'all' | 'A1' | 'A2' | 'B1' | 'A1.1' | 'A1.2' | 'A2.1' | 'A2.2' | 'B1.1' | 'B1.2'>('all');
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
@@ -93,7 +93,8 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
         if (selectedGender === 'die' && item.article !== 'die') return false;
         if (selectedGender === 'das' && item.article !== 'das') return false;
         if (selectedGender === 'verb' && item.partOfSpeech !== 'verb') return false;
-        if (selectedGender === 'other' && (item.article || item.partOfSpeech === 'verb')) return false;
+        if (selectedGender === 'adjective' && item.partOfSpeech !== 'adjective') return false;
+        if (selectedGender === 'other' && (item.article || item.partOfSpeech === 'verb' || item.partOfSpeech === 'adjective')) return false;
       }
 
       // Level filter (supports A1, A2, B1 and sub-levels)
@@ -251,6 +252,16 @@ export const VocabularySearch: React.FC<VocabularySearchProps> = ({
               }`}
             >
               Động từ
+            </button>
+            <button
+              onClick={() => setSelectedGender('adjective')}
+              className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
+                selectedGender === 'adjective'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-purple-50 text-purple-700 hover:bg-purple-100 border border-purple-200/60'
+              }`}
+            >
+              Tính từ
             </button>
           </div>
 
