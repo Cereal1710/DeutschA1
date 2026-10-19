@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { VocabularyItem } from '../types';
 import { VOCABULARY_LIST } from '../data/vocabulary';
 import { speakGerman } from '../utils/speech';
+import { formatGermanDisplay } from '../utils/formatWord';
 import { CheckCircle2, XCircle, RotateCcw, Volume2, Award, ArrowRight } from 'lucide-react';
 
 interface Question {
@@ -13,7 +15,10 @@ interface Question {
   explanation: string;
 }
 
-export const PracticeQuiz: React.FC<{ speechRate: number }> = ({ speechRate }) => {
+export const PracticeQuiz: React.FC<{ speechRate: number; words?: VocabularyItem[] }> = ({
+  speechRate,
+  words = VOCABULARY_LIST,
+}) => {
   const [quizType, setQuizType] = useState<'article' | 'meaning' | 'case'>('article');
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,22 +39,22 @@ export const PracticeQuiz: React.FC<{ speechRate: number }> = ({ speechRate }) =
 
     if (type === 'article') {
       // Pick 10 nouns that have articles
-      const nouns = VOCABULARY_LIST.filter((item) => item.article).sort(() => 0.5 - Math.random()).slice(0, 10);
+      const nouns = words.filter((item) => item.article).sort(() => 0.5 - Math.random()).slice(0, 10);
       generated = nouns.map((item) => ({
         id: item.id,
         questionText: `Chọn mạo từ đúng cho danh từ:`,
         subText: item.word,
-        germanToSpeak: item.german,
+        germanToSpeak: item.word || item.german,
         options: ['der', 'die', 'das'],
         correctAnswer: item.article!,
-        explanation: `${item.german} (${item.vietnamese}) - Số nhiều: ${item.plural || '—'}`,
+        explanation: `${formatGermanDisplay(item)} (${item.vietnamese}) - Số nhiều: ${item.plural || '—'}`,
       }));
     } else if (type === 'meaning') {
       // Pick 10 random words
-      const words = [...VOCABULARY_LIST].sort(() => 0.5 - Math.random()).slice(0, 10);
-      generated = words.map((item) => {
+      const wordPool = [...words].sort(() => 0.5 - Math.random()).slice(0, 10);
+      generated = wordPool.map((item) => {
         // 3 wrong distractors
-        const distractors = VOCABULARY_LIST.filter((w) => w.id !== item.id)
+        const distractors = words.filter((w) => w.id !== item.id)
           .sort(() => 0.5 - Math.random())
           .slice(0, 3)
           .map((w) => w.vietnamese);
@@ -58,11 +63,11 @@ export const PracticeQuiz: React.FC<{ speechRate: number }> = ({ speechRate }) =
         return {
           id: item.id,
           questionText: `Nghĩa tiếng Việt của từ:`,
-          subText: item.german,
-          germanToSpeak: item.german,
+          subText: formatGermanDisplay(item),
+          germanToSpeak: item.word || item.german,
           options,
           correctAnswer: item.vietnamese,
-          explanation: `${item.german} có nghĩa là: "${item.vietnamese}". Ví dụ: ${item.example}`,
+          explanation: `${formatGermanDisplay(item)} có nghĩa là: "${item.vietnamese}". Ví dụ: ${item.example}`,
         };
       });
     } else {
@@ -247,6 +252,42 @@ export const PracticeQuiz: React.FC<{ speechRate: number }> = ({ speechRate }) =
           options: ['könnt', 'kannst', 'kann', 'können'],
           correctAnswer: 'kann',
           explanation: 'Với tất cả Modalverben, ngôi "ich" và "er/sie/es" luôn giống nhau và KHÔNG CÓ ĐUÔI: er kann, er muss, er will, er darf.',
+        },
+        {
+          id: 'c21',
+          questionText: 'Điền giới từ thích hợp vào câu hỏi nghề nghiệp A1 chuẩn Goethe:',
+          subText: 'Was sind Sie ______ Beruf? — Ich bin Ingenieur.',
+          germanToSpeak: 'Was sind Sie von Beruf?',
+          options: ['im', 'von', 'aus', 'mit'],
+          correctAnswer: 'von',
+          explanation: 'Mẫu câu hỏi nghề nghiệp chuẩn A1 tiếng Đức: "Was sind Sie von Beruf?" hoặc "Was bist du von Beruf?".',
+        },
+        {
+          id: 'c22',
+          questionText: 'Điền từ nối nghề nghiệp thích hợp:',
+          subText: 'Mein Onkel arbeitet ______ Kellner in einem Restaurant.',
+          germanToSpeak: 'Mein Onkel arbeitet als Kellner in einem Restaurant.',
+          options: ['wie', 'für', 'als', 'mit'],
+          correctAnswer: 'als',
+          explanation: 'Khi nói làm nghề gì với động từ arbeiten, người Đức dùng cấu trúc: "arbeiten als + nghề nghiệp" (không có mạo từ).',
+        },
+        {
+          id: 'c23',
+          questionText: 'Điền đại từ thích hợp vào mẫu câu khám bệnh:',
+          subText: 'Mein Kopf tut ______ sehr weh. (động từ wehtun đòi hỏi Dativ)',
+          germanToSpeak: 'Mein Kopf tut mir sehr weh.',
+          options: ['mich', 'mir', 'ich', 'mein'],
+          correctAnswer: 'mir',
+          explanation: 'Cấu trúc khám bệnh: [bộ phận cơ thể] + tut + [jemandem - Dativ] + weh. Đại từ nhân xưng ngôi "ich" ở Dativ là "mir".',
+        },
+        {
+          id: 'c24',
+          questionText: 'Điền tiền tố tách của động từ "anziehen" (mặc vào) ở cuối câu:',
+          subText: 'Es ist kalt draußen, zieh bitte deine warme Jacke ______!',
+          germanToSpeak: 'Zieh bitte deine warme Jacke an!',
+          options: ['aus', 'auf', 'an', 'ein'],
+          correctAnswer: 'an',
+          explanation: 'Động từ tách "anziehen" có nghĩa là mặc quần áo vào. Tiền tố "an" bị đẩy về cuối câu mệnh lệnh: "Zieh ... an!".',
         },
       ];
       generated = caseQuestions.sort(() => 0.5 - Math.random()).slice(0, 10);

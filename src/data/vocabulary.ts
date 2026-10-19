@@ -1,7 +1,14 @@
 import { VocabularyItem } from '../types';
 import { MORE_VOCABULARY } from './moreVocabulary';
 import { ANIMALS_VOCABULARY } from './animalsVocabulary';
-import { NATURE_AND_COLORS_VOCABULARY } from './natureAndColorsVocabulary';
+import { PROFESSIONS_VOCABULARY } from './professionsVocabulary';
+import { CLOTHING_VOCABULARY } from './clothingVocabulary';
+import { BODY_VOCABULARY } from './bodyVocabulary';
+import { BERUFE_KOERPER_KLEIDUNG_VOCABULARY } from './berufeKoerperKleidung';
+import { A2_B1_VOCABULARY } from './a2b1Vocabulary';
+import { COLORS_AND_NATURE_VOCABULARY } from './colorsAndNatureVocabulary';
+import { EXPANDED_ADJECTIVES_VOCABULARY } from './adjectivesVocabulary';
+import { EXPANDED_VERBS_VOCABULARY } from './verbsVocabulary';
 
 const BASE_VOCABULARY: VocabularyItem[] = [
   // ==========================================
@@ -198,7 +205,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'thầy giáo, giáo viên nam',
     partOfSpeech: 'noun',
-    category: 'family',
+    category: 'professions',
     plural: 'Lehrer',
     pluralRule: 'Không đổi dạng ở số nhiều (đuôi -er)',
     example: 'Der Lehrer erklärt die deutsche Grammatik.',
@@ -213,7 +220,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'cô giáo, giáo viên nữ',
     partOfSpeech: 'noun',
-    category: 'family',
+    category: 'professions',
     plural: 'Lehrerinnen',
     pluralRule: 'Thêm -nen',
     example: 'Die Lehrerin stellt den Schülern eine Frage.',
@@ -228,7 +235,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'học sinh nam',
     partOfSpeech: 'noun',
-    category: 'family',
+    category: 'school',
     plural: 'Schüler',
     pluralRule: 'Không đổi dạng ở số nhiều',
     example: 'Der Schüler macht fleißig seine Hausaufgaben.',
@@ -243,7 +250,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'học sinh nữ',
     partOfSpeech: 'noun',
-    category: 'family',
+    category: 'school',
     plural: 'Schülerinnen',
     pluralRule: 'Thêm -nen',
     example: 'Die Schülerin antwortet schnell und richtig.',
@@ -1348,7 +1355,8 @@ const BASE_VOCABULARY: VocabularyItem[] = [
   },
 
   // ==========================================
-  // 2.6 QUẦN ÁO, CƠ THỂ VÀ SỨC KHỎE (18 từ)
+  // ==========================================
+  // 2.6 QUẦN ÁO & TRANG PHỤC (Kleidung)
   // ==========================================
   {
     id: 'hose',
@@ -1358,7 +1366,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'quần dài',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'clothing',
     plural: 'Hosen',
     pluralRule: 'Thêm -n',
     example: 'Diese blaue Hose passt mir sehr gut.',
@@ -1373,7 +1381,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'neuter',
     vietnamese: 'áo phông, áo thun',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'clothing',
     plural: 'T-Shirts',
     pluralRule: 'Thêm -s',
     example: 'Im Sommer trage ich am liebsten ein weißes T-Shirt.',
@@ -1388,7 +1396,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'áo khoác',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'clothing',
     plural: 'Jacken',
     pluralRule: 'Thêm -n',
     example: 'Zieh bitte deine warme Jacke an, es ist kalt draußen!',
@@ -1403,7 +1411,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'chiếc giày',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'clothing',
     plural: 'Schuhe',
     pluralRule: 'Thêm -e',
     example: 'Ich kaufe mir neue Schuhe für den Sportunterricht.',
@@ -1418,7 +1426,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'chiếc tất, vớ',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'clothing',
     plural: 'Socken',
     pluralRule: 'Thêm -n',
     example: 'Wo sind meine schwarzen Socken?',
@@ -1433,13 +1441,14 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'neuter',
     vietnamese: 'áo sơ mi',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'clothing',
     plural: 'Hemden',
     pluralRule: 'Thêm -en',
     example: 'Mein Vater trägt im Büro immer ein weißes Hemd.',
     exampleVi: 'Bố tôi luôn mặc một chiếc áo sơ mi trắng ở văn phòng.',
     level: 'A1.2',
   },
+  // CƠ THỂ VÀ SỨC KHỎE (Körper & Gesundheit)
   {
     id: 'kopf',
     german: 'r Kopf',
@@ -1448,7 +1457,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'đầu',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Köpfe',
     pluralRule: 'Thêm -e và biến âm ö',
     example: 'Mein Kopf tut mir heute furchtbar weh.',
@@ -1463,7 +1472,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'bàn tay',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Hände',
     pluralRule: 'Thêm -e và biến âm ä',
     example: 'Wasch dir bitte vor dem Essen die Hände!',
@@ -1478,7 +1487,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'bàn chân',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Füße',
     pluralRule: 'Thêm -e và biến âm ü',
     example: 'Ich gehe jeden Tag zu Fuß zur Arbeit.',
@@ -1493,7 +1502,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'neuter',
     vietnamese: 'mắt',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Augen',
     pluralRule: 'Thêm -n',
     example: 'Sie hat wunderschöne braune Augen.',
@@ -1508,7 +1517,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'răng',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Zähne',
     pluralRule: 'Thêm -e và biến âm ä',
     example: 'Putz dir bitte zweimal am Tag die Zähne!',
@@ -1523,7 +1532,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'mũi',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Nasen',
     pluralRule: 'Thêm -n',
     example: 'Meine Nase läuft, weil ich erkältet bin.',
@@ -1538,7 +1547,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'miệng',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Münder',
     pluralRule: 'Thêm -er và biến âm ü',
     example: 'Öffnen Sie bitte den Mund, ich untersuche Ihren Hals.',
@@ -1553,7 +1562,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'cánh tay',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Arme',
     pluralRule: 'Thêm -e (không biến âm)',
     example: 'Er hat sich beim Sport den rechten Arm verletzt.',
@@ -1568,13 +1577,14 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'neuter',
     vietnamese: 'chân (toàn bộ chân)',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'body',
     plural: 'Beine',
     pluralRule: 'Thêm -e',
     example: 'Nach dem langen Spaziergang tun mir die Beine weh.',
     exampleVi: 'Sau chuyến đi bộ dài, hai chân tôi đau nhức.',
     level: 'A1.2',
   },
+  // NGHỀ NGHIỆP Y TẾ & ĐỊA ĐIỂM
   {
     id: 'arzt',
     german: 'r Arzt',
@@ -1583,7 +1593,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'masculine',
     vietnamese: 'bác sĩ nam',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'professions',
     plural: 'Ärzte',
     pluralRule: 'Thêm -e và biến âm ä',
     example: 'Ich muss heute zum Arzt gehen, weil ich Fieber habe.',
@@ -1598,7 +1608,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'bác sĩ nữ',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'professions',
     plural: 'Ärztinnen',
     pluralRule: 'Thêm -nen',
     example: 'Die Ärztin gibt mir ein Rezept für Tabletten.',
@@ -1613,7 +1623,7 @@ const BASE_VOCABULARY: VocabularyItem[] = [
     gender: 'feminine',
     vietnamese: 'hiệu thuốc tây',
     partOfSpeech: 'noun',
-    category: 'clothing_body',
+    category: 'housing',
     plural: 'Apotheken',
     pluralRule: 'Thêm -n',
     example: 'Die Medikamente kaufe ich direkt in der Apotheke.',
@@ -3619,5 +3629,23 @@ export const VOCABULARY_LIST: VocabularyItem[] = [
   ...BASE_VOCABULARY,
   ...MORE_VOCABULARY,
   ...ANIMALS_VOCABULARY,
-  ...NATURE_AND_COLORS_VOCABULARY,
+  ...PROFESSIONS_VOCABULARY,
+  ...CLOTHING_VOCABULARY,
+  ...BODY_VOCABULARY,
+  ...BERUFE_KOERPER_KLEIDUNG_VOCABULARY,
+  ...A2_B1_VOCABULARY,
+  ...COLORS_AND_NATURE_VOCABULARY,
+  ...EXPANDED_ADJECTIVES_VOCABULARY,
+  ...EXPANDED_VERBS_VOCABULARY,
 ];
+
+export {
+  PROFESSIONS_VOCABULARY,
+  CLOTHING_VOCABULARY,
+  BODY_VOCABULARY,
+  BERUFE_KOERPER_KLEIDUNG_VOCABULARY,
+  A2_B1_VOCABULARY,
+  COLORS_AND_NATURE_VOCABULARY,
+  EXPANDED_ADJECTIVES_VOCABULARY,
+  EXPANDED_VERBS_VOCABULARY,
+};

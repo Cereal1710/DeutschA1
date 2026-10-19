@@ -1,6 +1,7 @@
 /**
- * German A1 Grammar Reference and Interactive Explanations
+ * German A1 - A2 - B1 Grammar Reference and Interactive Explanations
  */
+import { GRAMMAR_TOPICS_A2_B1 } from './grammarA2B1';
 
 export interface CaseRow {
   caseName: 'Nom' | 'Akk' | 'Dat' | 'Gen';
@@ -146,6 +147,7 @@ export const PREPOSITIONS_DATA: PrepositionItem[] = [
 export interface GrammarTopic {
   id: string;
   title: string;
+  level?: 'A1' | 'A2' | 'B1';
   shortSummary: string;
   formula: string;
   explanation: string;
@@ -153,7 +155,7 @@ export interface GrammarTopic {
   examples: { de: string; vi: string; note?: string }[];
 }
 
-export const GRAMMAR_TOPICS: GrammarTopic[] = [
+const BASE_GRAMMAR_TOPICS: GrammarTopic[] = [
   {
     id: 'satzbau',
     title: '5.1 Câu khẳng định & Quy tắc vị trí động từ V2',
@@ -423,6 +425,23 @@ export const GRAMMAR_TOPICS: GrammarTopic[] = [
     ],
   },
 ];
+
+export const GRAMMAR_TOPICS: GrammarTopic[] = [
+  ...BASE_GRAMMAR_TOPICS.map((t) => ({ ...t, level: (t.level || 'A1') as 'A1' | 'A2' | 'B1' })),
+  ...GRAMMAR_TOPICS_A2_B1,
+];
+
+export {
+  ADJEKTIV_MIT_BESTIMMT,
+  ADJEKTIV_MIT_UNBESTIMMT,
+  ADJEKTIV_OHNE_ARTIKEL,
+  RELATIVPRONOMEN_DATA,
+  REFLEXIVE_PRONOUNS_DATA,
+  GENITIV_PREPOSITIONS_DATA,
+  VERBEN_MIT_PRAEPOSITIONEN,
+  GRAMMAR_TOPICS_A2_B1,
+} from './grammarA2B1';
+export type { AdjectiveEndingRow, RelativPronounRow, ReflexivePronounRow, GenitivPrepositionItem, VerbPrepItem } from './grammarA2B1';
 
 export interface ModalVerbRow {
   verb: string;

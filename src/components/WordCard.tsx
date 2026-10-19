@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { VocabularyItem } from '../types';
 import { speakGerman } from '../utils/speech';
+import { formatGermanDisplay } from '../utils/formatWord';
 import { Volume2, Heart, ExternalLink, Sparkles } from 'lucide-react';
 import { getSecondaryExample } from '../data/secondaryExamples';
 
@@ -124,7 +125,7 @@ export const WordCard: React.FC<WordCardProps> = ({
 
             <div className="flex items-center gap-2 mt-1">
               <h3 className="text-xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
-                {item.german}
+                {formatGermanDisplay(item)}
               </h3>
               {/* Pronunciation button for word */}
               <button
@@ -162,18 +163,10 @@ export const WordCard: React.FC<WordCardProps> = ({
           </div>
         </div>
 
-        {/* Vietnamese & English Meanings */}
-        <div className="mb-2">
-          <p className="text-sm font-semibold text-slate-800">
-            {item.vietnamese}
-          </p>
-          {item.english && (
-            <p className="text-xs font-medium text-slate-500 mt-0.5 flex items-center gap-1.5">
-              <span className="text-[10px] uppercase font-bold text-slate-500 px-1 py-0.2 bg-slate-100 rounded border border-slate-200">EN</span>
-              <span>{item.english}</span>
-            </p>
-          )}
-        </div>
+        {/* Vietnamese Meaning */}
+        <p className="text-sm font-semibold text-slate-800 mb-2">
+          {item.vietnamese}
+        </p>
 
         {/* Plural info if noun */}
         {item.plural && (

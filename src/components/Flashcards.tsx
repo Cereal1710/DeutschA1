@@ -3,15 +3,17 @@ import { VocabularyItem, CategoryKey } from '../types';
 import { VOCABULARY_LIST } from '../data/vocabulary';
 import { CATEGORIES } from '../data/categories';
 import { speakGerman } from '../utils/speech';
+import { formatGermanDisplay } from '../utils/formatWord';
 import { Volume2, RotateCcw, Shuffle, CheckCircle, ChevronLeft, ChevronRight, Sparkles, Heart } from 'lucide-react';
 import { getSecondaryExample } from '../data/secondaryExamples';
 
 interface FlashcardsProps {
   favorites: string[];
   speechRate: number;
+  words?: VocabularyItem[];
 }
 
-export const Flashcards: React.FC<FlashcardsProps> = ({ favorites, speechRate }) => {
+export const Flashcards: React.FC<FlashcardsProps> = ({ favorites, speechRate, words = VOCABULARY_LIST }) => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('all');
   const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -23,9 +25,23 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ favorites, speechRate })
 
   // Filter pool of words
   const cardList = useMemo(() => {
-    let list = VOCABULARY_LIST.filter((item) => {
+    let list = words.filter((item) => {
       if (onlyFavorites && !favorites.includes(item.id)) return false;
-      if (selectedCategory !== 'all' && item.category !== selectedCategory) return false;
+      if (selectedCategory !== 'all') {
+        const matchesCategory =
+          item.category === selectedCategory ||
+          (selectedCategory === 'professions' && item.category === 'berufe') ||
+          (selectedCategory === 'berufe' && item.category === 'professions') ||
+          (selectedCategory === 'clothing' && item.category === 'kleidung') ||
+          (selectedCategory === 'kleidung' && item.category === 'clothing') ||
+          (selectedCategory === 'body' && item.category === 'koerper') ||
+          (selectedCategory === 'koerper' && item.category === 'body') ||
+          (selectedCategory === 'colors' && item.category === 'farben') ||
+          (selectedCategory === 'farben' && item.category === 'colors') ||
+          (selectedCategory === 'nature' && item.category === 'wetter') ||
+          (selectedCategory === 'wetter' && item.category === 'nature');
+        if (!matchesCategory) return false;
+      }
       return true;
     });
 
@@ -187,7 +203,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ favorites, speechRate })
                 Tiếng Đức
               </span>
               <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
-                {currentCard.german}
+                {formatGermanDisplay(currentCard)}
               </h2>
               {currentCard.plural && (
                 <p className="text-sm text-slate-500 font-medium">

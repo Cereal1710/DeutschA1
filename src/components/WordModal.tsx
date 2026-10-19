@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { VocabularyItem } from '../types';
 import { speakGerman } from '../utils/speech';
+import { formatGermanDisplay } from '../utils/formatWord';
 import { getSecondaryExample } from '../data/secondaryExamples';
 import { X, Volume2, Heart, Copy, Check, Sparkles, BookOpen } from 'lucide-react';
 
@@ -48,7 +49,7 @@ export const WordModal: React.FC<WordModalProps> = ({
   };
 
   const handleCopy = () => {
-    const textToCopy = `${item.german} - ${item.vietnamese}\nSố nhiều: ${item.plural || '—'}\nVí dụ: ${item.example} (${item.exampleVi})`;
+    const textToCopy = `${formatGermanDisplay(item)} - ${item.vietnamese}\nSố nhiều: ${item.plural || '—'}\nVí dụ: ${item.example} (${item.exampleVi})`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -104,17 +105,11 @@ export const WordModal: React.FC<WordModalProps> = ({
         <div className="flex items-start justify-between gap-4 mb-4 pb-4 border-b border-slate-100">
           <div>
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
-              {item.german}
+              {formatGermanDisplay(item)}
             </h2>
             <p className="text-lg font-medium text-slate-700 mt-1">
               {item.vietnamese}
             </p>
-            {item.english && (
-              <p className="text-sm font-medium text-slate-500 mt-0.5 flex items-center gap-1.5">
-                <span className="text-[10px] uppercase font-bold text-slate-500 px-1.5 py-0.5 bg-slate-100 rounded border border-slate-200">English</span>
-                <span>{item.english}</span>
-              </p>
-            )}
           </div>
 
           <div className="flex items-center gap-2">

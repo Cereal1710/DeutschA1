@@ -185,6 +185,27 @@ export const CheatSheet: React.FC = () => {
                   Đuôi <strong>-er (chỉ nghề nghiệp)</strong> là <strong>der</strong> (số nhiều không đổi).
                 </td>
               </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Mẫu câu nghề nghiệp (Berufe)</td>
+                <td className="py-3 px-4">
+                  Hỏi: <em>Was bist du von Beruf? / Was sind Sie von Beruf?</em><br />
+                  Trả lời: <em>Ich bin Lehrer / Ärztin von Beruf.</em> hoặc <em>Ich arbeite als Ingenieur bei Siemens.</em> (nam <strong>-er</strong>, nữ thêm <strong>-in</strong>, số nhiều <strong>-innen</strong>).
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Đi khám bệnh (Beim Arzt)</td>
+                <td className="py-3 px-4">
+                  Hỏi: <em>Was fehlt Ihnen? / Wo tut es weh?</em><br />
+                  Trả lời: <em>Mein Kopf / Bauch tut mir weh.</em> (Dativ: tut mir weh) hoặc <em>Ich habe Fieber / Halsschmerzen / die Grippe.</em>
+                </td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="py-3 px-4 font-bold text-slate-900">Mua sắm quần áo (Kleidung)</td>
+                <td className="py-3 px-4">
+                  Hỏi cỡ: <em>Welche Größe haben Sie? — Größe M / Größe 38.</em><br />
+                  Động từ tách: <em>anziehen</em> (mặc vào) / <em>ausziehen</em> (cởi ra): <em>Zieh deine Jacke an!</em>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

@@ -1,14 +1,15 @@
 import React from 'react';
 import { ActiveTab } from '../types';
-import { BookOpen, Table, FileText, Layers, CheckSquare, Sparkles } from 'lucide-react';
+import { BookOpen, Table, FileText, Layers, CheckSquare, Sparkles, Plus } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
   favoritesCount: number;
+  onOpenAddWordModal?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, favoritesCount }) => {
+export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, favoritesCount, onOpenAddWordModal }) => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,10 +24,10 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, favorit
             </div>
             <div>
               <span className="text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 block leading-tight">
-                Deutsch A1
+                Deutsch A1 – B1
               </span>
               <span className="text-xs text-slate-500 hidden sm:block">
-                Từ vựng &amp; Ngữ pháp A1.1 – A1.2
+                Từ vựng &amp; Ngữ pháp A1 – A2 – B1
               </span>
             </div>
           </button>
@@ -101,6 +102,17 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, favorit
 
           {/* Zone 3: 1 primary action */}
           <div className="flex items-center gap-2 shrink-0">
+            {onOpenAddWordModal && (
+              <button
+                onClick={onOpenAddWordModal}
+                className="px-3 py-2 text-xs font-semibold rounded-lg border border-slate-200 hover:bg-slate-100 text-slate-700 transition-colors flex items-center gap-1.5 whitespace-nowrap shrink-0"
+                title="Thêm từ vựng mới (Yêu cầu mật khẩu Admin)"
+              >
+                <Plus className="w-3.5 h-3.5 text-blue-600" />
+                <span className="hidden sm:inline">Thêm từ</span>
+              </button>
+            )}
+
             <button
               onClick={() => setActiveTab('quiz')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0 ${

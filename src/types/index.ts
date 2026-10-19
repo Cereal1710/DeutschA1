@@ -5,18 +5,26 @@ export type PartOfSpeech = 'noun' | 'verb' | 'adjective' | 'adverb' | 'question'
 export type CategoryKey =
   | 'all'
   | 'family'
+  | 'professions'
+  | 'berufe'
+  | 'clothing'
+  | 'kleidung'
+  | 'body'
+  | 'koerper'
+  | 'colors'
+  | 'farben'
+  | 'nature'
+  | 'wetter'
   | 'animals'
   | 'school'
-  | 'work'
   | 'housing'
   | 'food'
   | 'time'
-  | 'clothing_body'
   | 'travel'
-  | 'nature'
   | 'verbs'
   | 'adjectives'
-  | 'questions';
+  | 'questions'
+  | 'clothing_body';
 
 export interface CategoryInfo {
   key: CategoryKey;
@@ -39,6 +47,8 @@ export interface VerbConjugation {
   isSeparable?: boolean;
 }
 
+export type CEFRLevel = 'A1' | 'A2' | 'B1' | 'A1.1' | 'A1.2' | 'A2.1' | 'A2.2' | 'B1.1' | 'B1.2';
+
 export interface VocabularyItem {
   id: string;
   german: string; // e.g. "r Mann", "e Frau", "s Kind", "essen", "gut"
@@ -46,7 +56,6 @@ export interface VocabularyItem {
   article?: 'der' | 'die' | 'das';
   gender: Gender;
   vietnamese: string;
-  english?: string; // English translation from reference sheet
   partOfSpeech: PartOfSpeech;
   category: CategoryKey;
   plural?: string;
@@ -55,7 +64,7 @@ export interface VocabularyItem {
   exampleVi: string;
   example2?: string;
   example2Vi?: string;
-  level: 'A1.1' | 'A1.2';
+  level: CEFRLevel;
   conjugation?: VerbConjugation;
   caseUsage?: string; // e.g. "Đi với Akkusativ", "Đi với Dativ"
   notes?: string;

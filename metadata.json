@@ -1,6 +1,6 @@
 {
-  "name": "Deutsch A1 - Tra cứu Từ vựng & Ngữ pháp",
-  "description": "Tra cứu từ vựng tiếng Đức A1.1 – A1.2, bảng chia 4 cách (Nom, Akk, Dat, Gen), cấu trúc câu, phát âm chuẩn và luyện tập flashcard.",
+  "name": "Deutsch A1, A2, B1 - Tra cứu Từ vựng & Ngữ pháp",
+  "description": "Tra cứu từ vựng tiếng Đức các cấp độ A1, A2, B1, bảng chia 4 cách (Nom, Akk, Dat, Gen), cấu trúc câu, phát âm chuẩn và luyện tập flashcard.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

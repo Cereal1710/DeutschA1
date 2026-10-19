@@ -41,8 +41,9 @@ export function speakGerman(text: string, options: SpeakOptions = {}): boolean {
   try {
     window.speechSynthesis.cancel(); // Stop any pending speech
 
-    // Clean text: strip out leading shorthand "r ", "e ", "s ", "Pl. "
+    // Clean text: strip out leading shorthand "r ", "e ", "s ", "Pl. " and plural notation like ', "-er' or ', -Sg'
     const cleanedText = text
+      .replace(/,\s*["\-]?[a-zA-ZäöüÄÖÜß\-]*/g, '')
       .replace(/^r\s+/, 'der ')
       .replace(/^e\s+/, 'die ')
       .replace(/^s\s+/, 'das ')
