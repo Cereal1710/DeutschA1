@@ -42,8 +42,10 @@ export default function App() {
       localStorage.setItem('deutsch_theme', theme);
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
+        document.body.classList.remove('dark');
       }
     } catch (err) {
       console.warn('Could not save theme to localStorage', err);

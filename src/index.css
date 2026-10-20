@@ -8,16 +8,212 @@
     color: #1e293b;
     background-color: #f8fafc;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
 
+/* =========================================================================
+   DARK MODE HOÀN TOÀN DỊU MẮT (EASY ON THE EYES, SLATE / NAVY PALETTE)
+   Không còn bất kỳ thẻ (card) nào bị trắng chói mắt trong chế độ tối.
+   ========================================================================= */
+
 .dark body {
+  color: #f1f5f9;
+  background-color: #0b0f19;
+}
+
+/* Tất cả các thẻ (cards) nền trắng chuyển sang nền slate-navy dịu mắt */
+.dark .bg-white,
+.dark .bg-white\/95,
+.dark .bg-white\/90,
+.dark .bg-white\/80 {
+  background-color: #141d2f !important;
+  color: #f1f5f9;
+}
+
+/* Các khung nền phụ (inset / sub-containers) */
+.dark .bg-slate-50,
+.dark .bg-slate-50\/80,
+.dark .bg-slate-50\/50 {
+  background-color: #0e1524 !important;
+  color: #e2e8f0;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1b263b !important;
+  color: #e2e8f0;
+}
+
+.dark .bg-slate-200 {
+  background-color: #24344d !important;
   color: #f8fafc;
-  background-color: #0f172a;
+}
+
+/* Trạng thái Hover dịu êm */
+.dark .hover\:bg-white:hover {
+  background-color: #1e2d45 !important;
+}
+
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-50\/80:hover {
+  background-color: #182337 !important;
+}
+
+.dark .hover\:bg-slate-100:hover {
+  background-color: #22314a !important;
+}
+
+.dark .hover\:bg-slate-200:hover {
+  background-color: #2a3c58 !important;
+}
+
+/* Đường viền thẻ và phân cách (Borders & Dividers) */
+.dark .border-slate-200,
+.dark .border-slate-200\/80,
+.dark .border-slate-200\/60 {
+  border-color: #223149 !important;
+}
+
+.dark .border-slate-100 {
+  border-color: #1a253a !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #223149 !important;
+}
+
+/* Màu chữ tương phản hài hòa */
+.dark .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-slate-500 {
+  color: #64748b !important;
+}
+
+.dark .text-slate-400 {
+  color: #798da6 !important;
+}
+
+.dark .text-slate-300 {
+  color: #475569 !important;
+}
+
+/* Các trường nhập liệu (Inputs, Select, Textarea) */
+.dark input[type="text"],
+.dark input[type="password"],
+.dark textarea,
+.dark select {
+  background-color: #0e1524 !important;
+  border-color: #26364e !important;
+  color: #f8fafc !important;
+}
+
+.dark input::placeholder {
+  color: #64748b !important;
+}
+
+.dark select option {
+  background-color: #0e1524 !important;
+  color: #f8fafc !important;
+}
+
+/* Bóng đổ mềm cho ban đêm */
+.dark .shadow-xs,
+.dark .shadow-2xs,
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Mạo từ và Huy hiệu loại từ (Tags & Badges) dịu màu */
+.dark .bg-blue-50 {
+  background-color: rgba(30, 58, 138, 0.35) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+.dark .text-blue-700 {
+  color: #93c5fd !important;
+}
+
+.dark .bg-rose-50 {
+  background-color: rgba(136, 19, 55, 0.35) !important;
+  border-color: rgba(244, 63, 94, 0.3) !important;
+}
+.dark .text-rose-700 {
+  color: #fda4af !important;
+}
+
+.dark .bg-emerald-50 {
+  background-color: rgba(6, 78, 59, 0.35) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+.dark .text-emerald-700 {
+  color: #6ee7b7 !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: rgba(120, 53, 15, 0.35) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+.dark .text-amber-700,
+.dark .text-amber-800 {
+  color: #fcd34d !important;
+}
+
+.dark .bg-purple-50 {
+  background-color: rgba(88, 28, 135, 0.35) !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
+}
+.dark .text-purple-700 {
+  color: #d8b4fe !important;
+}
+
+.dark .bg-indigo-50 {
+  background-color: rgba(49, 46, 129, 0.35) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+.dark .text-indigo-700 {
+  color: #a5b4fc !important;
+}
+
+.dark .bg-teal-50 {
+  background-color: rgba(19, 78, 74, 0.35) !important;
+  border-color: rgba(20, 184, 166, 0.3) !important;
+}
+.dark .text-teal-700 {
+  color: #5eead4 !important;
+}
+
+/* Các viền màu theo giống trên Flashcards */
+.dark .border-blue-300 {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+.dark .border-rose-300 {
+  border-color: rgba(244, 63, 94, 0.4) !important;
+}
+.dark .border-emerald-300 {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+.dark .border-amber-300 {
+  border-color: rgba(245, 158, 11, 0.4) !important;
 }
 
 .font-mono-numbers {
   font-family: 'IBM Plex Mono', monospace;
   font-variant-numeric: tabular-nums;
 }
-
